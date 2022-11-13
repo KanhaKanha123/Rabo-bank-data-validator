@@ -1,0 +1,49 @@
+.file-input {
+    display: none;
+}
+
+.form-container {
+    display: flex;
+    flex-flow: column;
+    width: 1000px;
+    min-height: 300px;
+    background-color: rgba(87, 112, 146, 0.318);
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.file-container {
+    display: flex;
+    flex-flow: column;
+}
+
+.title-file-name {
+    font-weight: 700;
+}
+
+.upload-button {
+    width: 170px;
+    height: 30px;
+    font-weight: 800;
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.title {
+    font-weight: 800;
+    color: #1976d2;
+    margin-bottom: 1%;
+    margin-top: 1%;
+}
+
+.end-balance-validation {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.duplicate-record-validation {
+    margin-bottom: 5%;
+}

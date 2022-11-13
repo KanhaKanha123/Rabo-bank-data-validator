@@ -1,0 +1,20 @@
+<table class="styled-table">
+    <caption class="title">Invalid Duplicate Data:</caption>
+    <thead>
+        <tr>
+            <th>Reference</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let itemObj of invalidDuplicateData">
+        <tr>
+            <td colspan="2"><span class="group-title">{{itemObj.reference}}</span></td>
+        </tr>
+        <tr *ngFor="let itm of itemObj.items" class="active-row">
+            <td>{{itm.reference}}</td>
+            <td>{{itm.description}}</td>
+        </tr>
+        <tr>
+        </tr>
+    </tbody>
+</table>
