@@ -1,12 +1,5 @@
-<table class="styled-table">
-    <caption class="title">Invalid Duplicate Data:</caption>
-    <thead>
-        <tr>
-            <th>Reference</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody *ngFor="let itemObj of invalidDuplicateData">
+    
+    <ng-container *ngFor="let itemObj of invalidDuplicateData">
         <tr>
             <td colspan="2"><span class="group-title">{{itemObj.reference}}</span></td>
         </tr>
@@ -16,5 +9,4 @@
         </tr>
         <tr>
         </tr>
-    </tbody>
-</table>
+    </ng-container>

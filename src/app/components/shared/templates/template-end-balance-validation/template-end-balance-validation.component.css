@@ -1,0 +1,12 @@
+.active-row {
+    background-color: rgb(145, 187, 243);
+}
+
+td {
+    padding: 12px 85px;
+    font-size: 15px;
+}
+
+tr {
+    border-bottom: 1px solid #dddddd;
+}

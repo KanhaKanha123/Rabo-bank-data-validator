@@ -61,4 +61,22 @@ it('validateEndBanalce should return correct data', () => {
   fixture.detectChanges();
   expect(component.invalidEndBalanceData).toEqual(expectedInvalidEndAmountData)
 });
+
+it('In case of no duplicate found there should be correct message', () => {
+  const element = fixture.nativeElement;
+  component.invalidDuplicateData=[];
+  component.isSubmit= true;
+  fixture.detectChanges();
+  const compiled = fixture.nativeElement as HTMLElement;
+  expect(compiled.querySelectorAll('.message-no-duplicate')[0]?.textContent).toContain('No Duplicate Found');
+});
+
+it('In case of no end ba;ance wrong found there should be correct message', () => {
+  const element = fixture.nativeElement;
+  component.invalidEndBalanceData=[];
+  component.isSubmit= true;
+  fixture.detectChanges();
+  const compiled = fixture.nativeElement as HTMLElement;
+  expect(compiled.querySelectorAll('.message-no-end-balance')[0]?.textContent).toContain('End blance for all record is correct');
+});
 });

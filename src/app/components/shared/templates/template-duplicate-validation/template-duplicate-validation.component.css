@@ -1,0 +1,18 @@
+.active-row {
+    background-color: rgb(145, 187, 243);
+}
+
+td {
+    padding: 12px 85px;
+    font-size: 15px;
+}
+
+ tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.group-title {
+    color: #1976d2;
+    font-size: 20px;
+    font-weight: 700;
+}

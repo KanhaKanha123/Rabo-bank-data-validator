@@ -1,0 +1,16 @@
+<table class="styled-table">
+    <caption class="title">{{caption}}</caption>
+    <thead>
+        <tr>
+            <th class="th-float-right">Reference</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tr>
+        <td colspan="2">
+        <app-template-duplicate-validation *ngIf="invalidDuplicateData.length>0" [invalidDuplicateData]="invalidDuplicateData"></app-template-duplicate-validation>
+        <app-template-end-balance-validation *ngIf="invalidEndBalanceData.length>0" [invalidEndBalanceData]="invalidEndBalanceData"></app-template-end-balance-validation>   
+    </td>
+    </tr>
+ 
+</table>

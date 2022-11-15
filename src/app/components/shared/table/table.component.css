@@ -18,6 +18,11 @@
     font-size: 15px;
 }
 
+.th-float-right{
+    float: right;
+    margin-right: 12%;
+}
+
 .active-row {
     background-color: rgb(145, 187, 243);
 }

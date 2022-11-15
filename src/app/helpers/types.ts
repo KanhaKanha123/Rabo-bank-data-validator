@@ -8,12 +8,12 @@ export interface formattedDataType {
     endBalance: string;
 }
 
-export interface invalidDuplicateType {
+export interface invalidGenericType {
     reference: string;
     description: string;
 }
 
 export interface invalidDuplicateDataType {
     reference: string;
-    items: invalidDuplicateType[];
+    items: invalidGenericType[];
 }

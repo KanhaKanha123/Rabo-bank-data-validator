@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { convertTextToArray, parseXML } from '../../../helpers/format-data';
-import { invalidDuplicateDataType, invalidDuplicateType, formattedDataType } from '../../../helpers/types';
+import { convertTextToArray, parseXML } from '../../helpers/format-data';
+import { invalidDuplicateDataType, invalidGenericType, formattedDataType } from '../../helpers/types';
 
 @Component({
   selector: 'app-data-validator',
@@ -11,9 +11,14 @@ export class DataValidatorComponent {
 
   public isSubmit: boolean = false;
   public message: string = '';
+  public isLoading: boolean = false;
+
+  public captionDuplicate: string = 'Invalid Duplicate Data:';
+  public captionEndBalance: string = 'Invalid EndBalance Data:';
+
   public invalidDuplicateData: invalidDuplicateDataType[] = [];
   public invalidDuplicateGroupedMap: any = {};
-  public invalidEndBalanceData: invalidDuplicateType[] = [];
+  public invalidEndBalanceData: invalidGenericType[] = [];
 
   // constructor(private http: HttpClient) { }
 
@@ -22,17 +27,20 @@ export class DataValidatorComponent {
     this.invalidDuplicateData = [];
     this.invalidEndBalanceData = [];
     this.invalidDuplicateGroupedMap = {};
+    this.isLoading = true;
 
     //get file from file control
     const file: File = event.target.files[0];
 
     //this will take formatted data
     let formattedData: formattedDataType[] | any = null;
+
     //check if file exist
     if (file) {
       this.message = file.name;
       //read file as text by file reader
       let reader: FileReader = new FileReader();
+
       reader.readAsText(file);
 
       reader.onload = (e) => {
@@ -49,6 +57,7 @@ export class DataValidatorComponent {
           } else {
             //when wrong format is selected
             this.isSubmit = false;
+            this.isLoading = false;
             this.message = 'Please use only csv/XML';
           }
 
@@ -58,26 +67,30 @@ export class DataValidatorComponent {
 
             //find records with incorrect end balance
             this.validateEndBanalce(formattedData);
+
+            this.isLoading = false;
           } else {
-            //when file exist but data is not there
+            //when file exist with header but data is not there
             this.isSubmit = false;
-            this.message = 'File has no data inside';
+            this.isLoading = false;
+            this.message = 'File has only headers but data is not inside';
           }
-
         } else {
-          //when file exist but data is not there
+          //when file is empty there
           this.isSubmit = false;
-          this.message = 'File has no data inside';
+          this.isLoading = false;
+          this.message = 'File is empty';
         }
-
       }
     } else {
       //when no file selected
       this.isSubmit = false;
+      this.isLoading = false;
       this.message = 'Please select a file';
     }
   }
 
+  //checking duplicate here
   checkDupliacteRecords(inputArray: formattedDataType[]) {
 
     //make grouping for duplicate records
@@ -100,6 +113,7 @@ export class DataValidatorComponent {
 
   }
 
+  //checking end balance validation here
   validateEndBanalce(inputArray: formattedDataType[]) {
 
     inputArray.forEach((item: formattedDataType) => {
