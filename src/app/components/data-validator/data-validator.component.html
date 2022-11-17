@@ -1,27 +1,28 @@
-<div class="form-container">
+<form class="form-container">
     <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload />
 
-    <div class="file-container">
+    <section aria-label="Upload file to validate" class="file-container">
         <span class="title">Upload file to validate</span>
-        <button mat-mini-fab color="primary" class="upload-button" (click)="fileUpload.click()">Upload file
+        <button type="button" aria-label="Upload file button" color="primary" class="upload-button" (click)="fileUpload.click()">Upload file
         </button>
-
         <span class="title-file-name">{{message || "No file uploaded yet."}}</span>
-    </div>
+    </section>
 
+    <section>
     <div *ngIf="isLoading" class="loader"></div>
 
-    <app-table class="duplicate-record-validation" *ngIf="invalidDuplicateData.length>0 && isSubmit; else uniqueRecords"
+    <app-table aria-label="table invalid duplicate records" class="duplicate-record-validation" *ngIf="invalidDuplicateData.length>0 && isSubmit; else uniqueRecords"
         [invalidDuplicateData]="invalidDuplicateData" [caption]="captionDuplicate"></app-table>
 
-    <app-table class="end-balance-validation" *ngIf="invalidEndBalanceData.length>0; else endBalanceCorrect"
+    <app-table aria-label="table invalid end balance records" class="end-balance-validation" *ngIf="invalidEndBalanceData.length>0; else endBalanceCorrect"
         [caption]="captionEndBalance" [invalidEndBalanceData]="invalidEndBalanceData"></app-table>
 
-    <ng-template class="template-alignment" #uniqueRecords>
+    <ng-template aria-label="No Duplicate Found" class="template-alignment" #uniqueRecords>
         <span *ngIf="isSubmit" class="message-no-duplicate title">No Duplicate Found</span>
     </ng-template>
 
-    <ng-template class="template-alignment" #endBalanceCorrect>
+    <ng-template aria-label="End blance for all record is correct" class="template-alignment" #endBalanceCorrect>
         <span *ngIf="isSubmit" class="message-no-end-balance title">End blance for all record is correct</span>
     </ng-template>
-</div>
+</section>
+</form>

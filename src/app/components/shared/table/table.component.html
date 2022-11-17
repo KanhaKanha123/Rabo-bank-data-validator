@@ -1,4 +1,4 @@
-<table class="styled-table">
+<table aria-label="table here" class="styled-table" #pdfTable>
     <caption class="title">{{caption}}</caption>
     <thead>
         <tr>
@@ -8,9 +8,14 @@
     </thead>
     <tr>
         <td colspan="2">
-        <app-template-duplicate-validation *ngIf="invalidDuplicateData.length>0" [invalidDuplicateData]="invalidDuplicateData"></app-template-duplicate-validation>
-        <app-template-end-balance-validation *ngIf="invalidEndBalanceData.length>0" [invalidEndBalanceData]="invalidEndBalanceData"></app-template-end-balance-validation>   
-    </td>
+            <app-template-duplicate-validation *ngIf="invalidDuplicateData.length>0"
+                [invalidDuplicateData]="invalidDuplicateData"></app-template-duplicate-validation>
+            <app-template-end-balance-validation *ngIf="invalidEndBalanceData.length>0"
+                [invalidEndBalanceData]="invalidEndBalanceData"></app-template-end-balance-validation>
+        </td>
     </tr>
- 
 </table>
+
+<section class="exoprt-button-container">
+    <button id="exportBtn" aria-label="export to pdf button" type="button" color="primary" class="upload-button" (click)="exportToPDF()">Export To PDF</button>
+</section>

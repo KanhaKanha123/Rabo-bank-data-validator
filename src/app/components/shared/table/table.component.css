@@ -2,7 +2,7 @@
     border-collapse: collapse;
     font-size: 0.9em;
     font-family: sans-serif;
-    min-width: 700px;
+    width: 100%;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     margin-top: 5%;
 }
@@ -18,7 +18,7 @@
     font-size: 15px;
 }
 
-.th-float-right{
+.th-float-right {
     float: right;
     margin-right: 12%;
 }
@@ -51,4 +51,21 @@
     color: #1976d2;
     margin-bottom: 1%;
     margin-top: 1%;
+}
+
+.upload-button {
+    width: 170px;
+    height: 30px;
+    font-weight: 800;
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.exoprt-button-container {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    margin-top: 2%;
 }

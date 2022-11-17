@@ -48,4 +48,13 @@ describe('TableComponent', () => {
     expect(compiled.querySelector('.title')?.textContent).toContain('table is here');
   });
 
+  it('export to pdf button clicked event should arrive in handler', () => {
+    const element = fixture.nativeElement;
+    const btn = element.querySelector('#exportBtn');
+    spyOn(component, 'exportToPDF');
+    btn.dispatchEvent(new Event('click'));
+    fixture.detectChanges();
+    expect(component.exportToPDF).toHaveBeenCalled();
+  });
+
 });
